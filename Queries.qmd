@@ -1,7 +1,14 @@
 ---
-title: "Queries"
-format: html
-editor: visual
+title: "Redes multinomiales"
+author: "Marissa"
+format:
+   html:
+     toc: true
+     html-math-method: katex
+     embed-resources: true 
+     self-contained-math: true
+     df-print: kable
+editor: source
 ---
 
 ## Query 1
@@ -19,6 +26,7 @@ editor: visual
 ```
 ## Query 3
 ¿Cuál es la probabilidad de que el estrato bajo, utilice transporte micro, metro, autobús?
+
 ```{r}
 #| echo: false
 2 * 2
