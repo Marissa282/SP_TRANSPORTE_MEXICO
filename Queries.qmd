@@ -10,9 +10,50 @@ format:
      df-print: kable
 editor: source
 ---
+✏️ Construyan las variables que necesiten para dar respuesta a las queries asignadas. Si es necesario discreticen las variables continuas involucradas.
 
 ## Query 1
 ¿Cuál es la probabilidad de que el viaje del hogar al trabajo dure más de 60 minutos si la persona usa transporte público?
+
+Tablas necesarias: tviajes 
+
+tviajes: 
+
+HOGAR AL TRABAJO 
+- p5_6 (Pregunta 5.6 ¿Qué tipo de lugar es el origen de su viaje?) 
+- p5_11a (Pregunta 5.11a ¿Qué tipo de lugar fue el destino de su viaje?)
+- p5_13 (Pregunta 5.13 ¿Cuál fue el propósito del viaje?)
+
+DURACION DEL VIAJE 
+- Pregunta 5.9.¿A qué hora comenzó?
+- Pregunta 5.9.¿En qué minuto comenzó?
+- Pregunta 5.10 ¿A qué hora terminó?
+- Pregunta 5.10 ¿En qué minuto terminó?
+- Pregunta 5.14 Dígame por favor sí utilizó 02 Colectivo/Micro como medio de transporte
+
+TRANSPORTE PUBLICO 
+
+Pregunta 5.14 Dígame por favor sí utilizó 02 Colectivo/Micro como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 03 Taxi (App internet) como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó  04 Taxi (sitio, calle u otro) como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó  05 Metro como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 06 Autobús RTP o M1 como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 07 Bicicleta como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 08 Autobús como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó  09 Moto como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 10 Trolebús como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 11 Metrobús o Mexibús como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 12 Tren ligero como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 13 Tren suburbano como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 15 Mexicable como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 16 Bicitaxi como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó  17 Mototaxi como medio de transporte
+
+Pregunta 5.14 Dígame por favor sí utilizó 01 automóvil como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 18 Transporte  escolar como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 19 Transporte  de personal como medio de transporte
+Pregunta 5.14 Dígame por favor sí utilizó 20 Otro medio de transporte
+Pregunta 5.14 Dígame por favor sí 14 Caminó en la calle como medio de transporte
 
 ```{r}
 1 + 1
