@@ -77,6 +77,7 @@ Pregunta 5.14 Dígame por favor sí 14 Caminó en la calle como medio de transpo
 ```
 ## Query 3
 ¿Cuál es la probabilidad de que el estrato bajo, utilice transporte micro, metro, autobús?
+Variables: 
 
 ```{r}
 #| echo: false
