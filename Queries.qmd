@@ -12,6 +12,16 @@ editor: source
 ---
 ✏️ Construyan las variables que necesiten para dar respuesta a las queries asignadas. Si es necesario discreticen las variables continuas involucradas.
 
+✏️ Propongan al menos 3 diferentes DAGs que representen las relaciones de dependencia entre todas las variables de interés.
+
+✏️ Construyan una red bayesiana utilizando las DAGs que propusieron previamente.
+
+✏️ Discutan la significancia de las relaciones de dependencia de sus DAGs.
+
+✏️ ¿Cuál es la red que mejor se ajuste a sus datos? ¿Por qué?
+
+✏️ Utilicen el algoritmo hill-climbing para obtener la mejor estructura de la DAG para estos datos.
+
 ## Query 1
 ¿Cuál es la probabilidad de que el viaje del hogar al trabajo dure más de 60 minutos si la persona usa transporte público?
 
