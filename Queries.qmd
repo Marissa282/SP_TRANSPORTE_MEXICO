@@ -25,7 +25,7 @@ Para la resolución de las queries se determinó el  conjunto de variables [E, S
 - Estrato (E):1 (bajo), 2 (medio bajo), 3 (medio alto), 4 (alto).
 - Semana (S): 1 (Viaje entre semana), 2 (Viaje en domingo).
 - Origen (O): 1 (Su Hogar), 2 (Escuela), 3 (Oficina)... 16 (Otro).
-- Propósito (P): 1 (Ir al hogar), 2 (Ir al estudiar), 3 (Ir a estudiar)... 10 (Otro).
+- Propósito (P): 1 (Ir al hogar), 2 (Ir al trabajo), 3 (Ir a estudiar)... 10 (Otro).
 - Transporte (T): 1	(Automóvil), 2	(Colectivo/Micro), 3	(Taxi)... 20	(Otro).
 - Duración (D): 0 (Menor o igual a 60 min), 1 (Más de 60 min).
 
