@@ -1,6 +1,6 @@
 ---
 title: "Redes multinomiales"
-author: "Marissa Luna, Mariana León, Nube Garcidueñas, Ximena Cantón."
+author: "Marissa Luna, Mariana León, Nubia Garcidueñas, Ximena Cantón."
 format:
    html:
      toc: true
@@ -90,6 +90,79 @@ df_finalisimo.head()
 #hasta aqui es mi parte
 
 ✏️ Propongan al menos 3 diferentes DAGs que representen las relaciones de dependencia entre todas las variables de interés.
+
+```{python}
+library(bnlearn) 
+```
+
+```{python}
+data = read.csv("data/dag.csv", stringsAsFactors = TRUE)
+data[] <- lapply(data, factor) #columnas a factor 
+str(data)
+```
+```{python}
+head(data)
+```
+
+DAG 1
+```{python}
+dag_1 = empty.graph(nodes = c("E", "S", "O", "P", "T", "D"))
+```
+```{python}
+arc_set = matrix(c("E", "P",
+                   "P", "S",
+                   "E", "T",
+                   "T", "D",
+                   "O", "D"), byrow = TRUE, ncol = 2,
+                 dimnames = list(NULL, c("from", "to")))
+```
+```{python}
+arc_set
+```
+```{python}
+arcs(dag_1) = arc_set
+dag_1
+```
+
+DAG 2
+```{python}
+dag_2 = empty.graph(nodes = c("E", "S", "O", "P", "T", "D"))
+```
+```{python}
+arc_set = matrix(c("E", "P",
+                   "S", "P",
+                   "S", "O",
+                   "P", "T",
+                   "O", "T",
+                   "T","D"), byrow = TRUE, ncol = 2,
+                 dimnames = list(NULL, c("from", "to")))
+```
+```{python}
+arc_set
+```
+```{python}
+arcs(dag_2) = arc_set
+dag_2
+```
+DAG 3
+```{python}
+dag_3 = empty.graph(nodes = c("E", "S", "O", "P", "T", "D"))
+```
+```{python}
+arc_set = matrix(c("O", "E",
+                   "P", "E",
+                   "P", "S",
+                   "E", "T",
+                   "T", "D"), byrow = TRUE, ncol = 2,
+                 dimnames = list(NULL, c("from", "to")))
+```
+```{python}
+arc_set
+```
+```{python}
+arcs(dag_3) = arc_set
+dag_3
+```
 
 ✏️ Construyan una red bayesiana utilizando las DAGs que propusieron previamente.
 
