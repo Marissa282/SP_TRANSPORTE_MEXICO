@@ -216,3 +216,59 @@ arc.strength(dag_2, data = data, criterion = "mi")
 ```{r}
 arc.strength(dag_3, data = data, criterion = "mi")
 ```
+# 5. Ajuste de DAGs 
+
+✏️ **¿Cuál es la red que mejor se ajuste a sus datos? ¿Por qué?**
+
+```{r}
+
+#BIC DAG 1
+
+score(dag_1, data = data, type = "bic")
+
+
+
+#BIC DAG 2
+score(dag_2, data = data, type = "bic")
+
+
+#BIC DAG 3
+score(dag_3, data = data, type = "bic")
+
+
+```
+
+La dag 2 tiene el BIC mayor, por lo que se interpreta que es la red que mejor se ajusta a los datos. 
+ 
+# 6. Hill - climbing
+ 
+✏️ **Utilicen el algoritmo hill-climbing para obtener la mejor estructura de la DAG para estos datos.**
+
+
+```{r}
+best_dag = hc(data) #Hill Climbing con BIC 
+```
+
+```{r}
+modelstring(best_dag) 
+```
+
+# 7. Relaciones de nueva DAG
+
+✏️ **Discutan la pertinencia de las relaciones de esta nueva DAG.**
+
+```{r}
+arc.strength(best_dag, data = data, criterion = "mi")
+```
+```{r}
+#install.packages("BiocManager")
+#BiocManager::install("Rgraphviz")
+```
+
+```{r}
+library ("BiocManager")
+```
+
+```{r}
+graphviz.plot(best_dag, shape = "ellipse")
+```
