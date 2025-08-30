@@ -296,3 +296,10 @@ cpquery(bn, event = (O=="1" & P=="2" & D=="1"), evidence = (T=="2"|T=="5"|T=="6"
 ```{r}
 cpquery(bn, event = (E=="2"), evidence = (T=="1"), n = 10^6) 
 ```
+## Query 3
+
+¿Cuál es la probabilidad de que el estrato bajo, utilice transporte micro, metro, autobús?
+
+```{r}
+cpquery(bn, event = (T=="2"|T=="5"|T=="8"|T=="6"), evidence = (E=="1"), n = 10^6) 
+```
