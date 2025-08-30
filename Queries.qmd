@@ -289,4 +289,10 @@ graphviz.plot(best_dag, shape = "ellipse")
 bn= bn.fit(best_dag, data= data)
 cpquery(bn, event = (O=="1" & P=="2" & D=="1"), evidence = (T=="2"|T=="5"|T=="6"|T=="8"|T=="10"|T=="11"|T=="12"|T=="13"|T=="15"), n = 10^6) 
 ```
+## Query 2
 
+¿Cuál es la probabilidad de que el estrato es bajo dado que su transporte sea un auto?
+
+```{r}
+cpquery(bn, event = (E=="2"), evidence = (T=="1"), n = 10^6) 
+```
