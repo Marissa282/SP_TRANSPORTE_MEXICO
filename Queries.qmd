@@ -87,8 +87,8 @@ df_finalisimo = df_final[["E","S","O","P","T","D"]]
 ```{python}
 df_finalisimo.head()
 ```
-#hasta aqui es mi parte
 
+# 2. DAGs propuestas
 ✏️ **Propongan al menos 3 diferentes DAGs que representen las relaciones de dependencia entre todas las variables de interés.**
 
 ```{r}
