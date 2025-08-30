@@ -196,4 +196,23 @@ bn_mle = bn.fit(dag_2, data = data, method = "mle")
 ```{r}
 bn_mle = bn.fit(dag_2, data = data, method = "mle")
 ```
+# 4. Relaciones de dependencia
 
+✏️ **Discutan la significancia de las relaciones de dependencia de sus DAGs.**
+
+## DAG 1
+
+```{r}
+arc.strength(dag_1, data = data, criterion = "mi")
+```
+## DAG 2
+
+```{r}
+arc.strength(dag_2, data = data, criterion = "mi")
+```
+
+## DAG 3
+
+```{r}
+arc.strength(dag_3, data = data, criterion = "mi")
+```
