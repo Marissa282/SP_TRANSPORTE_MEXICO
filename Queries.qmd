@@ -34,8 +34,8 @@ import pandas as pd
 ```
 
 ```{python}
-viajes=pd.read_csv("/Users/marissaluna/Documents/SP_TRANSPORTE/data/eod_2017_csv/tviaje_eod2017/conjunto_de_datos/tviaje.csv")
-transportes= pd.read_csv("/Users/marissaluna/Documents/SP_TRANSPORTE/data/eod_2017_csv/ttransporte_eod2017/conjunto_de_datos/ttransporte.csv")
+viajes=pd.read_csv("data/eod_2017_csv/tviaje_eod2017/conjunto_de_datos/tviaje.csv")
+transportes= pd.read_csv("data/eod_2017_csv/ttransporte_eod2017/conjunto_de_datos/ttransporte.csv")
 ```
 
 ```{python}
@@ -86,6 +86,10 @@ df_finalisimo = df_final[["E","S","O","P","T","D"]]
 
 ```{python}
 df_finalisimo.head()
+```
+
+```{python}
+df_finalisimo.to_csv("data/dag.csv", index=False, encoding="utf-8")
 ```
 
 # 2. DAGs propuestas
@@ -272,3 +276,17 @@ library ("BiocManager")
 ```{r}
 graphviz.plot(best_dag, shape = "ellipse")
 ```
+
+# 8. Queries
+
+✏️ **Respondan las queries asignadas.**
+
+## Query 1
+
+¿Cuál es la probabilidad de que el viaje del hogar al trabajo dure más de 60 minutos si la persona usa transporte público?
+
+```{r}
+bn= bn.fit(best_dag, data= data)
+cpquery(bn, event = (O=="1" & P=="2" & D=="1"), evidence = (T=="2"|T=="5"|T=="6"|T=="8"|T=="10"|T=="11"|T=="12"|T=="13"|T=="15"), n = 10^6) 
+```
+
