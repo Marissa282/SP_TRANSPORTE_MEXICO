@@ -1,6 +1,6 @@
 ---
 title: "Redes multinomiales"
-author: "Marissa"
+author: "Marissa Luna, Mariana León, Nube Garcidueñas, Ximena Cantón."
 format:
    html:
      toc: true
@@ -10,7 +10,84 @@ format:
      df-print: kable
 editor: source
 ---
-✏️ Construyan las variables que necesiten para dar respuesta a las queries asignadas. Si es necesario discreticen las variables continuas involucradas.
+
+```{r}
+#utilizamos ambiente de anaconda para cagar python
+library(reticulate)
+use_condaenv("base", required = TRUE)
+```
+
+# 1. Construcción de variables
+✏️ **Construyan las variables que necesiten para dar respuesta a las queries asignadas. Si es necesario discreticen las variables continuas involucradas.**
+
+Para la resolución de las queries se determinó el  conjunto de variables [E, S, O, P, T, D], donde: 
+
+- Estrato (E):1 (bajo), 2 (medio bajo), 3 (medio alto), 4 (alto).
+- Semana (S): 1 (Viaje entre semana), 2 (Viaje en domingo).
+- Origen (O): 1 (Su Hogar), 2 (Escuela), 3 (Oficina)... 16 (Otro).
+- Propósito (P): 1 (Ir al hogar), 2 (Ir al estudiar), 3 (Ir a estudiar)... 10 (Otro).
+- Transporte (T): 1	(Automóvil), 2	(Colectivo/Micro), 3	(Taxi)... 20	(Otro).
+- Duración (D): 0 (Menor o igual a 60 min), 1 (Más de 60 min).
+
+```{python}
+import pandas as pd 
+```
+
+```{python}
+viajes=pd.read_csv("/Users/marissaluna/Documents/SP_TRANSPORTE/data/eod_2017_csv/tviaje_eod2017/conjunto_de_datos/tviaje.csv")
+transportes= pd.read_csv("/Users/marissaluna/Documents/SP_TRANSPORTE/data/eod_2017_csv/ttransporte_eod2017/conjunto_de_datos/ttransporte.csv")
+```
+
+```{python}
+viajes.head()
+```
+
+```{python}
+transportes.head()
+```
+
+```{python}
+#unimos los df en id_via 
+df_joined = pd.merge(viajes, transportes, on = "id_via", how = "inner")
+```
+
+```{python}
+#seleccionamos las columnas necesarias para represetar nuestras variables [E, S, O, P, T, D]
+vars_= ["id_via","id_tra", "estrato_x","p5_3_x","p5_6","p5_9_1","p5_9_2","p5_10_1","p5_10_2","p5_13","p5_14","p5_14_16" ]
+df_final= df_joined[vars_]
+```
+
+```{python}
+#cambiamos nombre de las columnas 
+df_final.columns = ["id_via", "id_tra", "E", "S", "O","Hora1","Min1", "Hora2","Min2", "P", "T", "bicitaxi"]
+```
+
+```{python}
+df_final.head()
+```
+
+```{python}
+#agregamos una columna de duración
+#resultado de la resta de el comienzo y culminación del viaje
+df_final["Duracion"]= (df_final["Hora2"]*60 + df_final["Min2"]) - (df_final["Hora1"]*60 + df_final["Min1"])
+```
+
+```{python}
+#discretizamos la var. Duracion 
+#>60 = 1, <=60 = 0 
+df_final["D"]= (df_final["Duracion"] > 60).astype(int)
+
+```
+
+```{python}
+#hacemos df nuevo con las variables finales
+df_finalisimo = df_final[["E","S","O","P","T","D"]]
+```
+
+```{python}
+df_finalisimo.head()
+```
+#hasta aqui es mi parte
 
 ✏️ Propongan al menos 3 diferentes DAGs que representen las relaciones de dependencia entre todas las variables de interés.
 
