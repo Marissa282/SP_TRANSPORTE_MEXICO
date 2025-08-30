@@ -89,26 +89,28 @@ df_finalisimo.head()
 ```
 #hasta aqui es mi parte
 
-✏️ Propongan al menos 3 diferentes DAGs que representen las relaciones de dependencia entre todas las variables de interés.
+✏️ **Propongan al menos 3 diferentes DAGs que representen las relaciones de dependencia entre todas las variables de interés.**
 
-```{python}
+```{r}
 library(bnlearn) 
 ```
 
-```{python}
+```{r}
 data = read.csv("data/dag.csv", stringsAsFactors = TRUE)
 data[] <- lapply(data, factor) #columnas a factor 
 str(data)
+
 ```
-```{python}
+```{r}
 head(data)
 ```
+## DAG 1 
 
-DAG 1
-```{python}
+```{r}
 dag_1 = empty.graph(nodes = c("E", "S", "O", "P", "T", "D"))
 ```
-```{python}
+
+```{r}
 arc_set = matrix(c("E", "P",
                    "P", "S",
                    "E", "T",
@@ -116,19 +118,22 @@ arc_set = matrix(c("E", "P",
                    "O", "D"), byrow = TRUE, ncol = 2,
                  dimnames = list(NULL, c("from", "to")))
 ```
-```{python}
+
+```{r}
 arc_set
 ```
-```{python}
+
+```{r}
 arcs(dag_1) = arc_set
 dag_1
 ```
+## DAG 2 
 
-DAG 2
-```{python}
+```{r}
 dag_2 = empty.graph(nodes = c("E", "S", "O", "P", "T", "D"))
 ```
-```{python}
+
+```{r}
 arc_set = matrix(c("E", "P",
                    "S", "P",
                    "S", "O",
@@ -137,18 +142,23 @@ arc_set = matrix(c("E", "P",
                    "T","D"), byrow = TRUE, ncol = 2,
                  dimnames = list(NULL, c("from", "to")))
 ```
-```{python}
+
+```{r}
 arc_set
 ```
-```{python}
+
+```{r}
 arcs(dag_2) = arc_set
 dag_2
 ```
-DAG 3
-```{python}
+## DAG 3
+
+```{r}
 dag_3 = empty.graph(nodes = c("E", "S", "O", "P", "T", "D"))
 ```
-```{python}
+
+```{r}
+
 arc_set = matrix(c("O", "E",
                    "P", "E",
                    "P", "S",
@@ -156,13 +166,20 @@ arc_set = matrix(c("O", "E",
                    "T", "D"), byrow = TRUE, ncol = 2,
                  dimnames = list(NULL, c("from", "to")))
 ```
-```{python}
+
+```{r}
 arc_set
 ```
-```{python}
+
+```{r}
 arcs(dag_3) = arc_set
+```
+
+```{r}
 dag_3
 ```
+
+
 
 ✏️ Construyan una red bayesiana utilizando las DAGs que propusieron previamente.
 
