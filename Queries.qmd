@@ -303,3 +303,10 @@ cpquery(bn, event = (E=="2"), evidence = (T=="1"), n = 10^6)
 ```{r}
 cpquery(bn, event = (T=="2"|T=="5"|T=="8"|T=="6"), evidence = (E=="1"), n = 10^6) 
 ```
+##  Query 4 
+
+¿Cuál es la probabilidad de que una persona viaje entre semana y sea de estrato medio bajo dado que va al trabajo en bicitaxi?
+
+```{r}
+cpquery(bn, event = S == "1" & E == "2", evidence = list(T = "16"), method = "lw")
+```
